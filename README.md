@@ -36,6 +36,7 @@ migration-guide/
 ## Topics
 
 - [x] **Car Rental** — companies, rough prices, documents required, cross-border to Georgia
+- [x] **Crypto Law** — legality, taxation, and restrictions on buying/selling crypto
 - [ ] Housing
 - [ ] Residency & Visas
 - [ ] Banking

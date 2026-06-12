@@ -9,6 +9,13 @@ const topics = [
     to: '/car-rental',
     ready: true,
   },
+  {
+    icon: '₿',
+    title: 'Crypto Law',
+    desc: 'Is buying & selling crypto legal, is it taxed, and what are the restrictions?',
+    to: '/crypto-law',
+    ready: true,
+  },
   { icon: '🏠', title: 'Housing', desc: 'Renting an apartment, typical prices, and lease paperwork.', ready: false },
   { icon: '📄', title: 'Residency & Visas', desc: 'Residence permits, registration, and required documents.', ready: false },
   { icon: '🏦', title: 'Banking', desc: 'Opening an account, cards, and transferring money.', ready: false },

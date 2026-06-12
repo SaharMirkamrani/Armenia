@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import CarRental from '../views/CarRental.vue'
+import CryptoLaw from '../views/CryptoLaw.vue'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
   { path: '/car-rental', name: 'car-rental', component: CarRental },
+  { path: '/crypto-law', name: 'crypto-law', component: CryptoLaw },
 ]
 
 const router = createRouter({
