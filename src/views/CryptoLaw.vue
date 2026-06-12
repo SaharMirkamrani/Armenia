@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 // Quick-answer summary cards
 const quickAnswers = [
   { q: 'Is buying & selling legal?', a: 'Yes', tone: 'good', detail: 'Individuals can legally buy, sell and hold crypto. It is regulated, but not banned — and not legal tender.' },
-  { q: 'Is it taxed?', a: 'Mostly no (for now)', tone: 'mixed', detail: 'Non-business individuals currently pay 0% on crypto gains. Businesses pay normal profit tax (~18%).' },
+  { q: 'Is it taxed?', a: 'Gains no, income yes', tone: 'mixed', detail: 'Investment gains are 0% for individuals — but being PAID in crypto is normal income, taxed at 20%.' },
   { q: 'Any restrictions?', a: 'Some', tone: 'mixed', detail: 'Service providers (exchanges) need a Central Bank licence, and large cash crypto deals are limited.' },
 ]
 
@@ -17,9 +17,10 @@ const legal = [
 ]
 
 const tax = [
-  { who: 'Individuals (non-business)', rate: '0%', detail: 'Gains from personal crypto buying/selling are currently not taxed under the tax code — a key reason Armenia is attractive to crypto holders.' },
-  { who: 'Individual entrepreneurs / regular traders', rate: 'Income tax', detail: 'If trading is a business activity, normal income-tax rules apply.' },
-  { who: 'Companies', rate: '18% profit tax', detail: 'Crypto income is revenue and taxed at the standard corporate profit-tax rate.' },
+  { who: 'Individual — investment gains', rate: '0%', detail: 'Gains from personal crypto buying/selling/holding are currently not taxed — a key reason Armenia is attractive to crypto holders.' },
+  { who: 'Individual — paid in crypto (salary/freelance)', rate: '20% income tax', detail: 'Earning crypto for work is ordinary income, valued in AMD when received, taxed like any salary. The 0% gains rule does NOT apply here.' },
+  { who: 'Individual entrepreneurs / regular traders', rate: 'Income tax', detail: 'If trading is frequent and systematic enough to count as a business, normal income-tax rules apply instead of the 0% exemption.' },
+  { who: 'Companies', rate: '18% profit tax', detail: 'Crypto received as revenue is taxed at the standard corporate profit-tax rate.' },
   { who: 'High-tech / blockchain startups', rate: '1% turnover', detail: 'Small high-tech companies (revenue under ~AMD 115M) can use a 1% turnover-tax regime; the ECOS free zone adds further incentives.' },
 ]
 
@@ -27,6 +28,14 @@ const taxNotes = [
   'The 0% personal rate is the current treatment and could change — treat it as "true today, verify before relying on it".',
   'Armenia has committed to the OECD Crypto-Asset Reporting Framework (CARF), with the first automatic exchange of information expected in 2027.',
   'The State Revenue Committee has acquired Chainalysis software to monitor crypto transactions, so on-chain activity is increasingly visible to tax authorities.',
+]
+
+const paidInCrypto = [
+  'Earning crypto (salary, freelance, payment for services) is taxable income at the 20% flat rate — valued in AMD at the moment you receive it. The 0% rule only covers later price gains, not the income itself.',
+  'Pension / social contributions may also apply (~5% on income up to 500,000 AMD/month, 10% above).',
+  'Residency matters: spend 183+ days here and you are a tax resident, taxed on worldwide income — so foreign crypto pay counts. Non-residents are taxed only on Armenian-source income.',
+  'Spending it is fine — no extra tax on spending itself. Just remember crypto transactions are meant to be non-cash, with a transitional cash cap of ~300,000 AMD (~$780) per deal; in practice you convert to drams and spend normally.',
+  'Any rise in value between receiving the crypto and selling it is a capital gain — and that part is 0% for individuals.',
 ]
 
 const restrictions = [
@@ -53,6 +62,9 @@ const sources = [
   { t: 'Cryptopolitan — Armenia amends crypto law and starts licensing service providers', u: 'https://www.cryptopolitan.com/armenia-amends-crypto-law-and-starts-licensing-service-providers/' },
   { t: 'IMF — Republic of Armenia: Tax Compliance and Crypto Assets (July 2024)', u: 'https://www.imf.org/-/media/files/publications/tar/2024/english/tarea2024069-print-pdf.pdf' },
   { t: 'MB Legal — Guide to Crypto Regulations in Armenia (2026)', u: 'https://mblegal.am/armenia-crypto-guide/' },
+  { t: 'PwC Tax Summaries — Armenia: Taxes on personal income (20% flat rate)', u: 'https://taxsummaries.pwc.com/armenia/individual/taxes-on-personal-income' },
+  { t: 'Vardanyan & Partners — Taxes in Armenia: Guide for Foreigners', u: 'https://armenian-lawyer.com/taxes-armenia/' },
+  { t: 'Beaumont Capital Markets — Armenia\'s Crypto Tax Guide for Expats & Digital Nomads', u: 'https://beaumont-capitalmarkets.co.uk/armenias-crypto-tax-guide-for-expats-and-digital-nomads/' },
 ]
 </script>
 
@@ -97,6 +109,16 @@ const sources = [
       <h3>⚠️ Tax caveats</h3>
       <ul>
         <li v-for="(n, i) in taxNotes" :key="i">{{ n }}</li>
+      </ul>
+    </div>
+
+    <div class="callout" style="border-left-color: var(--accent-2)">
+      <h3>💸 What if I'm PAID in crypto? Can I spend it?</h3>
+      <p style="margin:0 0 10px">
+        Yes — receiving and spending crypto is legal. But don't confuse the two tax events:
+      </p>
+      <ul style="margin:0">
+        <li v-for="(p, i) in paidInCrypto" :key="i">{{ p }}</li>
       </ul>
     </div>
 
