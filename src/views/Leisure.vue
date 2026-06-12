@@ -2,26 +2,26 @@
 import { RouterLink } from 'vue-router'
 
 const gyms = [
-  { name: 'Budget gyms', price: 'from ~15,000 AMD/mo', note: 'Local neighbourhood gyms — basic equipment, no frills.' },
-  { name: 'Mid-range (city average)', price: '~30,000 AMD/mo', note: 'The average Yerevan membership (late 2025). Good equipment, often a sauna.' },
-  { name: 'Gold\'s Gym', price: '~30,000–70,000+ AMD/mo', note: 'International brand, large floors, full cardio + free weights.' },
-  { name: 'Orange Fitness', price: '~30,000–70,000+ AMD/mo', note: 'Premium club, classes, pool at some locations.' },
-  { name: 'Neo Gym', price: 'mid–premium', note: 'Popular; modern kit, boxing & functional zones, fitness bar, sauna.' },
-  { name: 'The ONE Gym Premium', price: 'premium', note: 'Central all-in-one fitness + recovery space.' },
+  { name: "Gold's Gym", price: '~30,000–70,000+ /mo', loc: '3 branches: Komitas 40/1, Amiryan 27/1, Avan', q: "Gold's Gym Amiryan 27/1 Yerevan", url: 'https://www.goldsgym.am/' },
+  { name: 'Orange Fitness', price: '~30,000–70,000+ /mo', loc: 'Tsitsernakaberd Hwy 7/1', q: 'Orange Premium Fitness Club Yerevan', url: 'https://orangefitness.am/' },
+  { name: 'Neo Gym', price: 'mid–premium', loc: 'Vagharsh Vagharshyan 12/4', q: 'Neo Gym Vagharshyan Yerevan', url: null },
+  { name: 'The ONE Gym Premium', price: 'premium', loc: 'Griboyedov Park complex', q: 'The One Gym Yerevan', url: null },
+  { name: 'FitHub (multi-gym pass)', price: 'one pass, many gyms', loc: 'App — many partner gyms', q: null, url: 'https://fithub.am/en/partners' },
 ]
 
 const gymNotes = [
-  'FitHub (fithub.am) is a multi-gym pass app — one subscription gets you into many partner gyms and pools around the city. Good if you want flexibility or move around a lot.',
+  'Rough budget: basic neighbourhood gyms from ~15,000 AMD/mo; the city average is ~30,000 AMD/mo (late 2025); premium clubs run 30,000–70,000+.',
+  'FitHub is a multi-gym pass app — one subscription gets you into many partner gyms and pools. Good if you move around the city or want variety.',
   'Annual memberships are noticeably cheaper per month than pay-as-you-go.',
 ]
 
 // Pools — mostly outdoor/resort, busiest in summer
 const pools = [
-  { name: 'Vahagni Pool', price: 'Adult 6,000 (wd) / 9,000 (we); morning 4,500; child 4,000', note: 'Popular outdoor pool.' },
-  { name: 'Paradise Pool (Green Palace Hotel)', price: 'Adult 7,000 (wd) / 8,000 (we); child 4,000–5,000', note: 'Hotel pool, open to visitors.' },
-  { name: 'Panorama Yerevan Resort', price: 'Adult 6,000 (wd) / 8,000 (we)', note: 'Resort pool with city views.' },
-  { name: 'Multi Grand Pharaon Hotel', price: '8,000 (wd) / 10,000 (we)', note: 'Hotel pool complex.' },
-  { name: 'The Pool (Dvin Hotel, rooftop)', price: '25,000 for non-guests', note: 'Premium rooftop pool/club.' },
+  { name: 'Vahagni (Vahakni) Pool & Bar', price: 'Adult 6,000 wd / 9,000 we; morning 4,500; child 4,000', loc: 'Yerevan–Ashtarak Hwy 7', q: 'Vahakni Pool Bar Yerevan', url: null },
+  { name: 'Paradise Pool (Green Palace Hotel)', price: 'Adult 7,000 wd / 8,000 we; child 4,000–5,000', loc: '57 Myasnikyan Ave', q: 'Paradise Pool Green Palace Yerevan', url: 'https://green.am/en/paradise-pool' },
+  { name: 'Panorama Resort Hotel', price: 'Adult 6,000 wd / 8,000 we', loc: 'Elevated city area (panoramic views)', q: 'Panorama Resort Hotel Yerevan', url: null },
+  { name: 'Multi Grand Pharaon Hotel', price: '8,000 wd / 10,000 we', loc: 'Pharaon hotel complex', q: 'Multi Grand Pharaon Hotel Yerevan', url: null },
+  { name: 'The Pool (Dvin Hotel, rooftop)', price: '25,000 for non-guests', loc: 'The Dvin / Seven Visions', q: 'The Pool Dvin Hotel Yerevan', url: 'https://7visionshotels.com/the-pool/' },
 ]
 
 const poolNotes = [
@@ -30,9 +30,9 @@ const poolNotes = [
 ]
 
 const cinemas = [
-  { name: 'Kinopark', loc: 'Yerevan Mall, Arshakunyats Ave 34/3', q: 'Kinopark Yerevan Mall', note: 'Modern multiplex; open 10:00–02:00. Online booking via the Yerevan Mall app.' },
-  { name: 'Cinema Star', loc: 'Erebuni Plaza & Megamall', q: 'Cinema Star Yerevan', note: 'Premium chain, slightly pricier than Moscow Cinema.' },
-  { name: 'Moscow Cinema', loc: '18 Abovyan St (city centre)', q: 'Moscow Cinema Yerevan Abovyan', note: 'Historic 1936 cinema; central and cheaper. Shows arthouse + mainstream.' },
+  { name: 'Kinopark', loc: 'Yerevan Mall, Arshakunyats Ave 34/3', q: 'Kinopark Yerevan Mall', url: 'https://kinopark.am/en', note: 'Modern multiplex; open 10:00–02:00.' },
+  { name: 'Cinema Star', loc: 'Erebuni Plaza & Megamall', q: 'Cinema Star Yerevan', url: 'https://cinemastar.am/en', note: 'Premium chain, slightly pricier than Moscow Cinema.' },
+  { name: 'Moscow Cinema', loc: '18 Abovyan St (city centre)', q: 'Moscow Cinema Yerevan Abovyan', url: 'https://moscowcinema.com/en', note: 'Historic 1936 cinema; central and cheaper.' },
 ]
 
 const cinemaNotes = [
@@ -42,7 +42,7 @@ const cinemaNotes = [
 
 const ebikes = [
   { name: 'YerevanRide', url: 'https://www.yerevanride.am/pricing.html', price: '1 day 1,000 · 3 days 2,000 · month 9,000 · year 49,000 AMD', note: 'E-bikes & e-scooters. Each plan = unlimited 45-minute rides. Best value for regular use.' },
-  { name: 'BusyFly', url: null, price: '~100 AMD to unlock + ~30 AMD/min', note: 'E-scooter sharing, pay per ride — fine for occasional short hops.' },
+  { name: 'BusyFly', url: 'https://play.google.com/store/apps/details?id=soft.gelios.com.scooter', price: '~100 AMD to unlock + ~30 AMD/min', note: 'E-scooter sharing, pay per ride via the app (App Store / Google Play). ~100+ scooters citywide.' },
   { name: 'Mimo', url: 'https://www.mimobike.com/', price: 'pay per ride', note: 'Bike-sharing platform aiming for affordable, accessible city cycling.' },
 ]
 
@@ -50,6 +50,9 @@ const sources = [
   { t: 'Expatistan — Gym membership price in Yerevan', u: 'https://www.expatistan.com/price/gym/yerevan' },
   { t: 'ArmeniaInfo — Best gyms & fitness centres in Yerevan', u: 'https://armeniainfo.ai/blog/medical-tourism-guide/best-gyms-fitness-centers-in-yerevan-directory-your-ultimate-guide-to-a-healthier-lifestyle' },
   { t: 'FitHub — multi-gym partner network', u: 'https://fithub.am/en/partners' },
+  { t: "Gold's Gym Armenia — official site", u: 'https://www.goldsgym.am/' },
+  { t: 'Orange Fitness — official site', u: 'https://orangefitness.am/' },
+  { t: 'Green Palace — Paradise Pool', u: 'https://green.am/en/paradise-pool' },
   { t: 'AraraTour — Outdoor swimming pools in Yerevan (prices)', u: 'https://araratour.com/top-7-outdoor-swimming-pools-in-yerevan' },
   { t: 'Visit Yerevan — Outdoor swimming pools', u: 'https://visityerevan.am/blog/details/58/en/' },
   { t: 'KinoPark — official site', u: 'https://kinopark.am/en' },
@@ -74,12 +77,16 @@ const mapUrl = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeU
     <h2>🏋️ Gyms</h2>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Gym</th><th>~ Price</th><th>Notes</th></tr></thead>
+        <thead><tr><th>Gym</th><th>~ Price</th><th>Location</th><th>Website</th></tr></thead>
         <tbody>
           <tr v-for="g in gyms" :key="g.name">
             <td><strong>{{ g.name }}</strong></td>
             <td>{{ g.price }}</td>
-            <td>{{ g.note }}</td>
+            <td>
+              <a v-if="g.q" :href="mapUrl(g.q)" target="_blank" rel="noopener">📍 {{ g.loc }}</a>
+              <span v-else>{{ g.loc }}</span>
+            </td>
+            <td><a v-if="g.url" :href="g.url" target="_blank" rel="noopener">Visit</a><span v-else>—</span></td>
           </tr>
         </tbody>
       </table>
@@ -93,12 +100,16 @@ const mapUrl = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeU
     <h2>🏊 Swimming pools</h2>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Pool</th><th>~ Entry (AMD)</th><th>Notes</th></tr></thead>
+        <thead><tr><th>Pool</th><th>~ Entry (AMD)</th><th>Location</th><th>Website</th></tr></thead>
         <tbody>
           <tr v-for="p in pools" :key="p.name">
             <td><strong>{{ p.name }}</strong></td>
             <td>{{ p.price }}</td>
-            <td>{{ p.note }}</td>
+            <td>
+              <a v-if="p.q" :href="mapUrl(p.q)" target="_blank" rel="noopener">📍 {{ p.loc }}</a>
+              <span v-else>{{ p.loc }}</span>
+            </td>
+            <td><a v-if="p.url" :href="p.url" target="_blank" rel="noopener">Visit</a><span v-else>—</span></td>
           </tr>
         </tbody>
       </table>
@@ -112,11 +123,12 @@ const mapUrl = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeU
     <h2>🎬 Cinemas</h2>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Cinema</th><th>Where</th><th>Notes</th></tr></thead>
+        <thead><tr><th>Cinema</th><th>Location</th><th>Website</th><th>Notes</th></tr></thead>
         <tbody>
           <tr v-for="c in cinemas" :key="c.name">
             <td><strong>{{ c.name }}</strong></td>
             <td><a :href="mapUrl(c.q)" target="_blank" rel="noopener">📍 {{ c.loc }}</a></td>
+            <td><a v-if="c.url" :href="c.url" target="_blank" rel="noopener">Visit</a><span v-else>—</span></td>
             <td>{{ c.note }}</td>
           </tr>
         </tbody>
