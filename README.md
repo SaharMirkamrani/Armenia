@@ -42,6 +42,7 @@ migration-guide/
 - [x] **Events & Festivals** — upcoming concerts/festivals + System of a Down status
 - [x] **Marriage Loan** — using Iran's marriage loan while living abroad
 - [x] **Housing** — renting in Yerevan: prices, districts, platforms, lease paperwork
+- [x] **Language** — Armenian for absolute beginners: alphabet, phrases, numbers, resources
 - [ ] Residency & Visas
 - [ ] Banking
 

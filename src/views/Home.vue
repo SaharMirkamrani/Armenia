@@ -51,6 +51,13 @@ const topics = [
     to: '/housing',
     ready: true,
   },
+  {
+    icon: '🗣️',
+    title: 'Language',
+    desc: 'Armenian for absolute beginners — alphabet, survival phrases, numbers, and resources.',
+    to: '/language',
+    ready: true,
+  },
   { icon: '📄', title: 'Residency & Visas', desc: 'Residence permits, registration, and required documents.', ready: false },
   { icon: '🏦', title: 'Banking', desc: 'Opening an account, cards, and transferring money.', ready: false },
 ]

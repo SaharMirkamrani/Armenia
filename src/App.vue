@@ -12,6 +12,7 @@ const links = [
   { to: '/events', label: 'Events' },
   { to: '/marriage-loan', label: 'Marriage Loan' },
   { to: '/housing', label: 'Housing' },
+  { to: '/language', label: 'Language' },
 ]
 
 const menuOpen = ref(false)

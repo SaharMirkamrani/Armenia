@@ -7,6 +7,7 @@ import Leisure from '../views/Leisure.vue'
 import Events from '../views/Events.vue'
 import MarriageLoan from '../views/MarriageLoan.vue'
 import Housing from '../views/Housing.vue'
+import Language from '../views/Language.vue'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -17,6 +18,7 @@ const routes = [
   { path: '/events', name: 'events', component: Events },
   { path: '/marriage-loan', name: 'marriage-loan', component: MarriageLoan },
   { path: '/housing', name: 'housing', component: Housing },
+  { path: '/language', name: 'language', component: Language },
 ]
 
 const router = createRouter({
