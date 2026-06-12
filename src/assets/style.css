@@ -180,6 +180,59 @@ tbody tr:hover { background: var(--surface); }
 .sources { font-size: 0.85rem; color: var(--muted); }
 .sources li { margin: 4px 0; word-break: break-word; }
 
-@media (max-width: 540px) {
+/* Smaller type & tighter spacing on phones */
+@media (max-width: 600px) {
+  .wrap { padding: 0 16px; }
+  .hero { padding: 40px 0 28px; }
   .hero h1 { font-size: 1.7rem; }
+  .hero p { font-size: 1rem; }
+  .content h1 { font-size: 1.6rem; }
+  .content h2 { font-size: 1.2rem; }
+  .lead { font-size: 1rem; }
+  .section-title { font-size: 1.15rem; }
+}
+
+/* Mobile-first tables: stack each row into a card on narrow screens.
+   Header cells are hidden; non-title cells show their column name via
+   a data-label attribute (added in the templates). */
+@media (max-width: 600px) {
+  .table-wrap { border: none; overflow-x: visible; border-radius: 0; }
+  .table-wrap table,
+  .table-wrap tbody,
+  .table-wrap tr,
+  .table-wrap td { display: block; width: 100%; }
+  .table-wrap thead { display: none; }
+  .table-wrap tr {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    padding: 4px 4px 6px;
+  }
+  .table-wrap tbody tr:hover { background: var(--surface); }
+  .table-wrap td {
+    border: none;
+    padding: 7px 14px;
+    display: block;
+    font-size: 0.95rem;
+  }
+  /* First cell becomes the card title */
+  .table-wrap td:first-child {
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding-bottom: 10px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  /* Column label stacked above each value */
+  .table-wrap td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin-bottom: 1px;
+  }
 }

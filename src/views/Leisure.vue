@@ -81,12 +81,12 @@ const mapUrl = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeU
         <tbody>
           <tr v-for="g in gyms" :key="g.name">
             <td><strong>{{ g.name }}</strong></td>
-            <td>{{ g.price }}</td>
-            <td>
+            <td data-label="Price">{{ g.price }}</td>
+            <td data-label="Location">
               <a v-if="g.q" :href="mapUrl(g.q)" target="_blank" rel="noopener">📍 {{ g.loc }}</a>
               <span v-else>{{ g.loc }}</span>
             </td>
-            <td><a v-if="g.url" :href="g.url" target="_blank" rel="noopener">Visit</a><span v-else>—</span></td>
+            <td data-label="Website"><a v-if="g.url" :href="g.url" target="_blank" rel="noopener">Visit</a><span v-else>—</span></td>
           </tr>
         </tbody>
       </table>
@@ -104,12 +104,12 @@ const mapUrl = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeU
         <tbody>
           <tr v-for="p in pools" :key="p.name">
             <td><strong>{{ p.name }}</strong></td>
-            <td>{{ p.price }}</td>
-            <td>
+            <td data-label="Entry">{{ p.price }}</td>
+            <td data-label="Location">
               <a v-if="p.q" :href="mapUrl(p.q)" target="_blank" rel="noopener">📍 {{ p.loc }}</a>
               <span v-else>{{ p.loc }}</span>
             </td>
-            <td><a v-if="p.url" :href="p.url" target="_blank" rel="noopener">Visit</a><span v-else>—</span></td>
+            <td data-label="Website"><a v-if="p.url" :href="p.url" target="_blank" rel="noopener">Visit</a><span v-else>—</span></td>
           </tr>
         </tbody>
       </table>
@@ -127,9 +127,9 @@ const mapUrl = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeU
         <tbody>
           <tr v-for="c in cinemas" :key="c.name">
             <td><strong>{{ c.name }}</strong></td>
-            <td><a :href="mapUrl(c.q)" target="_blank" rel="noopener">📍 {{ c.loc }}</a></td>
-            <td><a v-if="c.url" :href="c.url" target="_blank" rel="noopener">Visit</a><span v-else>—</span></td>
-            <td>{{ c.note }}</td>
+            <td data-label="Location"><a :href="mapUrl(c.q)" target="_blank" rel="noopener">📍 {{ c.loc }}</a></td>
+            <td data-label="Website"><a v-if="c.url" :href="c.url" target="_blank" rel="noopener">Visit</a><span v-else>—</span></td>
+            <td data-label="Notes">{{ c.note }}</td>
           </tr>
         </tbody>
       </table>
@@ -150,8 +150,8 @@ const mapUrl = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeU
               <a v-if="e.url" :href="e.url" target="_blank" rel="noopener"><strong>{{ e.name }}</strong></a>
               <strong v-else>{{ e.name }}</strong>
             </td>
-            <td>{{ e.price }}</td>
-            <td>{{ e.note }}</td>
+            <td data-label="Price">{{ e.price }}</td>
+            <td data-label="Notes">{{ e.note }}</td>
           </tr>
         </tbody>
       </table>

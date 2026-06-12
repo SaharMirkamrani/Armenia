@@ -148,8 +148,8 @@ const sources = [
         <tbody>
           <tr v-for="t in tax" :key="t.who">
             <td><strong>{{ t.who }}</strong></td>
-            <td>{{ t.rate }}</td>
-            <td>{{ t.detail }}</td>
+            <td data-label="Rate">{{ t.rate }}</td>
+            <td data-label="Details">{{ t.detail }}</td>
           </tr>
         </tbody>
       </table>

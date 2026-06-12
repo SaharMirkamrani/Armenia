@@ -82,12 +82,12 @@ const sources = [
         <tbody>
           <tr v-for="c in companies" :key="c.name">
             <td><a :href="c.site" target="_blank" rel="noopener">{{ c.name }}</a></td>
-            <td><span class="pill">{{ c.type }}</span></td>
-            <td>
+            <td data-label="Type"><span class="pill">{{ c.type }}</span></td>
+            <td data-label="Location">
               <a v-if="c.q" :href="mapUrl(c.q)" target="_blank" rel="noopener">📍 {{ c.loc }}</a>
               <span v-else class="muted-loc">{{ c.loc }}</span>
             </td>
-            <td>{{ c.note }}</td>
+            <td data-label="Notes">{{ c.note }}</td>
           </tr>
         </tbody>
       </table>
@@ -103,9 +103,9 @@ const sources = [
         <tbody>
           <tr v-for="p in prices" :key="p.cls">
             <td><strong>{{ p.cls }}</strong></td>
-            <td>{{ p.examples }}</td>
-            <td>{{ p.daily }}</td>
-            <td>{{ p.note }}</td>
+            <td data-label="Models">{{ p.examples }}</td>
+            <td data-label="Per day">{{ p.daily }}</td>
+            <td data-label="Notes">{{ p.note }}</td>
           </tr>
         </tbody>
       </table>

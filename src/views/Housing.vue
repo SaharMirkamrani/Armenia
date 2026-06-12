@@ -79,9 +79,9 @@ const sources = [
         <tbody>
           <tr v-for="p in prices" :key="p.type">
             <td><strong>{{ p.type }}</strong></td>
-            <td>{{ p.area }}</td>
-            <td>{{ p.rent }}</td>
-            <td>{{ p.note }}</td>
+            <td data-label="Areas">{{ p.area }}</td>
+            <td data-label="Rent/mo">{{ p.rent }}</td>
+            <td data-label="Notes">{{ p.note }}</td>
           </tr>
         </tbody>
       </table>
@@ -94,8 +94,8 @@ const sources = [
         <tbody>
           <tr v-for="d in districts" :key="d.name">
             <td><strong>{{ d.name }}</strong></td>
-            <td>{{ d.vibe }}</td>
-            <td>{{ d.cost }}</td>
+            <td data-label="Vibe">{{ d.vibe }}</td>
+            <td data-label="Cost">{{ d.cost }}</td>
           </tr>
         </tbody>
       </table>
