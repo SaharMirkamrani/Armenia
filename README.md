@@ -1,0 +1,47 @@
+# Migration Guide 🇦🇲
+
+A personal, research-backed **Vue.js** website covering the practical information I need for my migration to Armenia. Each topic is researched from multiple sources and written up as its own page.
+
+## Tech stack
+
+- [Vue 3](https://vuejs.org/) (`<script setup>` SFCs)
+- [Vue Router](https://router.vuejs.org/) for pages
+- [Vite](https://vitejs.dev/) for dev server & build
+
+## Getting started
+
+```bash
+npm install
+npm run dev      # start the dev server (http://localhost:5173)
+npm run build    # production build into dist/
+npm run preview  # preview the production build
+```
+
+## Structure
+
+```
+migration-guide/
+├── index.html              # Vite entry
+├── src/
+│   ├── main.js             # app bootstrap
+│   ├── App.vue             # header / footer shell
+│   ├── router/index.js     # routes
+│   ├── assets/style.css    # shared styles
+│   └── views/
+│       ├── Home.vue        # topic index
+│       └── CarRental.vue   # car rental research
+└── vite.config.js
+```
+
+## Topics
+
+- [x] **Car Rental** — companies, rough prices, documents required, cross-border to Georgia
+- [ ] Housing
+- [ ] Residency & Visas
+- [ ] Banking
+
+Adding a topic: create `src/views/Topic.vue`, add a route in `src/router/index.js`, and add a card in `src/views/Home.vue`.
+
+## Disclaimer
+
+Compiled from public sources. Prices and requirements change frequently — always confirm directly with the company or relevant authority before relying on anything here.
