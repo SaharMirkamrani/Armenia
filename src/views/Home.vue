@@ -44,7 +44,13 @@ const topics = [
     to: '/marriage-loan',
     ready: true,
   },
-  { icon: '🏠', title: 'Housing', desc: 'Renting an apartment, typical prices, and lease paperwork.', ready: false },
+  {
+    icon: '🏠',
+    title: 'Housing',
+    desc: 'Renting an apartment — prices by district, where to look, and lease paperwork.',
+    to: '/housing',
+    ready: true,
+  },
   { icon: '📄', title: 'Residency & Visas', desc: 'Residence permits, registration, and required documents.', ready: false },
   { icon: '🏦', title: 'Banking', desc: 'Opening an account, cards, and transferring money.', ready: false },
 ]

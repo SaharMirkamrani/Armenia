@@ -15,6 +15,7 @@ import CurrencyConverter from './components/CurrencyConverter.vue'
         <RouterLink to="/leisure">Leisure</RouterLink>
         <RouterLink to="/events">Events</RouterLink>
         <RouterLink to="/marriage-loan">Marriage Loan</RouterLink>
+        <RouterLink to="/housing">Housing</RouterLink>
       </nav>
     </div>
   </header>

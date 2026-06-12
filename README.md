@@ -41,7 +41,7 @@ migration-guide/
 - [x] **Leisure & Fitness** — gyms, pools, cinemas, e-bikes with rough prices
 - [x] **Events & Festivals** — upcoming concerts/festivals + System of a Down status
 - [x] **Marriage Loan** — using Iran's marriage loan while living abroad
-- [ ] Housing
+- [x] **Housing** — renting in Yerevan: prices, districts, platforms, lease paperwork
 - [ ] Residency & Visas
 - [ ] Banking
 
