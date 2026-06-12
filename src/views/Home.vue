@@ -37,6 +37,13 @@ const topics = [
     to: '/events',
     ready: true,
   },
+  {
+    icon: '💍',
+    title: 'Marriage Loan',
+    desc: 'Can Iran\'s marriage loan be used while living abroad? Conditions and the catch.',
+    to: '/marriage-loan',
+    ready: true,
+  },
   { icon: '🏠', title: 'Housing', desc: 'Renting an apartment, typical prices, and lease paperwork.', ready: false },
   { icon: '📄', title: 'Residency & Visas', desc: 'Residence permits, registration, and required documents.', ready: false },
   { icon: '🏦', title: 'Banking', desc: 'Opening an account, cards, and transferring money.', ready: false },
