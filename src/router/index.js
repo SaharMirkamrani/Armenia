@@ -4,6 +4,7 @@ import CarRental from '../views/CarRental.vue'
 import CryptoLaw from '../views/CryptoLaw.vue'
 import Apps from '../views/Apps.vue'
 import Leisure from '../views/Leisure.vue'
+import Events from '../views/Events.vue'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -11,6 +12,7 @@ const routes = [
   { path: '/crypto-law', name: 'crypto-law', component: CryptoLaw },
   { path: '/apps', name: 'apps', component: Apps },
   { path: '/leisure', name: 'leisure', component: Leisure },
+  { path: '/events', name: 'events', component: Events },
 ]
 
 const router = createRouter({

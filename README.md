@@ -39,6 +39,7 @@ migration-guide/
 - [x] **Crypto Law** — legality, taxation, and restrictions on buying/selling crypto
 - [x] **Essential Apps** — must-have apps (taxi, transport, food, banking) + EarlyOne
 - [x] **Leisure & Fitness** — gyms, pools, cinemas, e-bikes with rough prices
+- [x] **Events & Festivals** — upcoming concerts/festivals + System of a Down status
 - [ ] Housing
 - [ ] Residency & Visas
 - [ ] Banking

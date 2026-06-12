@@ -30,6 +30,13 @@ const topics = [
     to: '/leisure',
     ready: true,
   },
+  {
+    icon: '🎶',
+    title: 'Events & Festivals',
+    desc: 'Upcoming concerts and festivals — including the System of a Down status.',
+    to: '/events',
+    ready: true,
+  },
   { icon: '🏠', title: 'Housing', desc: 'Renting an apartment, typical prices, and lease paperwork.', ready: false },
   { icon: '📄', title: 'Residency & Visas', desc: 'Residence permits, registration, and required documents.', ready: false },
   { icon: '🏦', title: 'Banking', desc: 'Opening an account, cards, and transferring money.', ready: false },
