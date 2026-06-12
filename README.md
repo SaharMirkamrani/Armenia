@@ -37,6 +37,7 @@ migration-guide/
 
 - [x] **Car Rental** — companies, rough prices, documents required, cross-border to Georgia
 - [x] **Crypto Law** — legality, taxation, and restrictions on buying/selling crypto
+- [x] **Essential Apps** — must-have apps (taxi, transport, food, banking) + EarlyOne
 - [ ] Housing
 - [ ] Residency & Visas
 - [ ] Banking
