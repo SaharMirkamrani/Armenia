@@ -8,6 +8,7 @@ import Events from '../views/Events.vue'
 import MarriageLoan from '../views/MarriageLoan.vue'
 import Housing from '../views/Housing.vue'
 import Language from '../views/Language.vue'
+import Translator from '../views/Translator.vue'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -19,6 +20,7 @@ const routes = [
   { path: '/marriage-loan', name: 'marriage-loan', component: MarriageLoan },
   { path: '/housing', name: 'housing', component: Housing },
   { path: '/language', name: 'language', component: Language },
+  { path: '/translate', name: 'translate', component: Translator },
 ]
 
 const router = createRouter({

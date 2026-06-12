@@ -59,6 +59,13 @@ const topics = [
     to: '/language',
     ready: true,
   },
+  {
+    icon: '🔁',
+    title: 'Live Translator',
+    desc: 'Translate English or Persian to Armenian in real time — type or speak, read or listen.',
+    to: '/translate',
+    ready: true,
+  },
   { icon: '📄', title: 'Residency & Visas', desc: 'Residence permits, registration, and required documents.', ready: false },
   { icon: '🏦', title: 'Banking', desc: 'Opening an account, cards, and transferring money.', ready: false },
 ]

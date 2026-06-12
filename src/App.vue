@@ -13,6 +13,7 @@ const links = [
   { to: '/marriage-loan', label: 'Marriage' },
   { to: '/housing', label: 'Housing' },
   { to: '/language', label: 'Language' },
+  { to: '/translate', label: 'Translate' },
 ]
 
 const menuOpen = ref(false)
