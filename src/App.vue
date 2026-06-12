@@ -1,21 +1,41 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { ref, watch } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 import CurrencyConverter from './components/CurrencyConverter.vue'
+
+const links = [
+  { to: '/', label: 'Home' },
+  { to: '/car-rental', label: 'Car Rental' },
+  { to: '/crypto-law', label: 'Crypto Law' },
+  { to: '/apps', label: 'Apps' },
+  { to: '/leisure', label: 'Leisure' },
+  { to: '/events', label: 'Events' },
+  { to: '/marriage-loan', label: 'Marriage Loan' },
+  { to: '/housing', label: 'Housing' },
+]
+
+const menuOpen = ref(false)
+const route = useRoute()
+// Close the mobile menu whenever the route changes.
+watch(() => route.fullPath, () => { menuOpen.value = false })
 </script>
 
 <template>
   <header class="site-header">
-    <div class="wrap">
+    <div class="wrap header-bar">
       <RouterLink to="/" class="brand"><span class="flag">🇦🇲</span> Migration Guide</RouterLink>
-      <nav class="nav">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/car-rental">Car Rental</RouterLink>
-        <RouterLink to="/crypto-law">Crypto Law</RouterLink>
-        <RouterLink to="/apps">Apps</RouterLink>
-        <RouterLink to="/leisure">Leisure</RouterLink>
-        <RouterLink to="/events">Events</RouterLink>
-        <RouterLink to="/marriage-loan">Marriage Loan</RouterLink>
-        <RouterLink to="/housing">Housing</RouterLink>
+      <button
+        class="nav-toggle"
+        :class="{ open: menuOpen }"
+        :aria-expanded="menuOpen"
+        aria-controls="primary-nav"
+        aria-label="Toggle navigation menu"
+        @click="menuOpen = !menuOpen"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="primary-nav" class="nav" :class="{ open: menuOpen }">
+        <RouterLink v-for="l in links" :key="l.to" :to="l.to">{{ l.label }}</RouterLink>
       </nav>
     </div>
   </header>
