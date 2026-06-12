@@ -23,6 +23,13 @@ const topics = [
     to: '/apps',
     ready: true,
   },
+  {
+    icon: '🏊',
+    title: 'Leisure & Fitness',
+    desc: 'Gyms, swimming pools, cinemas, and electric bike/scooter rentals — with rough prices.',
+    to: '/leisure',
+    ready: true,
+  },
   { icon: '🏠', title: 'Housing', desc: 'Renting an apartment, typical prices, and lease paperwork.', ready: false },
   { icon: '📄', title: 'Residency & Visas', desc: 'Residence permits, registration, and required documents.', ready: false },
   { icon: '🏦', title: 'Banking', desc: 'Opening an account, cards, and transferring money.', ready: false },
