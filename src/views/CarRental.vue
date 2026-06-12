@@ -2,18 +2,21 @@
 import { RouterLink } from 'vue-router'
 
 // ── Companies ────────────────────────────────────────────────
+// `loc` = human-readable location; `q` = Google Maps search query (null = no physical office).
 const companies = [
-  { name: 'Naniko', type: 'Local', site: 'https://naniko.am/', note: 'Frequently recommended local operator. EVN airport pickup, economy→luxury/SUV. Also operates in Tbilisi & Baku — strong for cross-border trips.' },
-  { name: 'Best Car Rent', type: 'Local', site: 'https://www.bestcarrent.am/en', note: 'Established Yerevan company with a broad fleet; top-rated local operator.' },
-  { name: 'HomyCars', type: 'Local', site: 'https://homycars.com/', note: 'Yerevan operator with a detailed Armenia→Georgia cross-border guide (handles the notarized authorization).' },
-  { name: 'Rentacar-Armenia', type: 'Local', site: 'https://rentacar-armenia.com/', note: '2026 pricing, class-segmented quotes, clear terms page. Some no-deposit cars.' },
-  { name: 'Roscar', type: 'Local (budget)', site: 'https://roscar.am/', note: 'Economy from ~$17/day with no-deposit / no-credit-card options.' },
-  { name: 'TravelCar', type: 'Local', site: 'https://travelcar.am/', note: 'Local operator; useful, clear guidance on IDP requirements.' },
-  { name: 'Sixt', type: 'International', site: 'https://www.sixt.com/car-rental/armenia/', note: 'Premium international brand, airport presence, standardized terms. Stricter cross-border rules.' },
-  { name: 'Hertz Armenia', type: 'International', site: 'https://www.hertz.am/', note: 'International brand via local franchise; modern fleet, EVN airport pickup.' },
-  { name: 'Enterprise Armenia', type: 'International', site: 'https://enterprise.am/', note: 'Clear requirements checklist; explicitly supports one-way Armenia↔Georgia rentals.' },
-  { name: 'Localrent', type: 'Aggregator', site: 'https://www.localrent.com/en/armenia/', note: 'Compares many local agencies with English support. "Georgia travel permission" is a bookable add-on. Good for first-timers.' },
+  { name: 'Naniko', type: 'Local', site: 'https://naniko.am/', loc: 'Northern Ave 8/2, Kentron, Yerevan', q: 'Naniko Rent a Car Northern Avenue 8/2 Yerevan', note: 'Frequently recommended local operator. EVN airport pickup, economy→luxury/SUV. Also operates in Tbilisi & Baku — strong for cross-border trips.' },
+  { name: 'Best Car Rent', type: 'Local', site: 'https://www.bestcarrent.am/en', loc: 'Amiryan St 12, Kentron, Yerevan', q: 'Best Car Rent Amiryan Street Yerevan', note: 'Established Yerevan company with a broad fleet; top-rated local operator.' },
+  { name: 'HomyCars', type: 'Local', site: 'https://homycars.com/', loc: '33/2 Mashtots Ave, Yerevan 0002', q: 'HomyCars 33/2 Mashtots Avenue Yerevan', note: 'Yerevan operator with a detailed Armenia→Georgia cross-border guide (handles the notarized authorization).' },
+  { name: 'Rentacar-Armenia', type: 'Local', site: 'https://rentacar-armenia.com/', loc: 'Delivery / airport — no walk-in office', q: null, note: '2026 pricing, class-segmented quotes, clear terms page. Some no-deposit cars.' },
+  { name: 'Roscar', type: 'Local (budget)', site: 'https://roscar.am/', loc: 'Delivery / airport — no walk-in office', q: null, note: 'Economy from ~$17/day with no-deposit / no-credit-card options.' },
+  { name: 'TravelCar', type: 'Local', site: 'https://travelcar.am/', loc: 'Yerevan (call to confirm)', q: 'TravelCar Rent a Car Yerevan', note: 'Local operator; useful, clear guidance on IDP requirements.' },
+  { name: 'Sixt', type: 'International', site: 'https://www.sixt.com/car-rental/armenia/', loc: 'Zvartnots Airport + downtown Yerevan', q: 'Sixt Car Rental Zvartnots Airport Yerevan', note: 'Premium international brand, airport presence, standardized terms. Stricter cross-border rules.' },
+  { name: 'Hertz Armenia', type: 'International', site: 'https://www.hertz.am/', loc: 'Zvartnots Airport, Arrivals Hall', q: 'Hertz Car Rental Zvartnots Airport Yerevan', note: 'International brand via local franchise; modern fleet, EVN airport pickup.' },
+  { name: 'Enterprise Armenia', type: 'International', site: 'https://enterprise.am/', loc: 'Zvartnots Airport, Arrivals Hall', q: 'Enterprise Rent-A-Car Zvartnots Airport Yerevan', note: 'Clear requirements checklist; explicitly supports one-way Armenia↔Georgia rentals.' },
+  { name: 'Localrent', type: 'Aggregator', site: 'https://www.localrent.com/en/armenia/', loc: 'Online only — no office', q: null, note: 'Compares many local agencies with English support. "Georgia travel permission" is a bookable add-on. Good for first-timers.' },
 ]
+
+const mapUrl = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`
 
 // ── Prices by class (rough, daily, in season 2025–2026) ──────
 const prices = [
@@ -74,12 +77,16 @@ const sources = [
     <div class="table-wrap">
       <table>
         <thead>
-          <tr><th>Company</th><th>Type</th><th>Notes</th></tr>
+          <tr><th>Company</th><th>Type</th><th>Location</th><th>Notes</th></tr>
         </thead>
         <tbody>
           <tr v-for="c in companies" :key="c.name">
             <td><a :href="c.site" target="_blank" rel="noopener">{{ c.name }}</a></td>
             <td><span class="pill">{{ c.type }}</span></td>
+            <td>
+              <a v-if="c.q" :href="mapUrl(c.q)" target="_blank" rel="noopener">📍 {{ c.loc }}</a>
+              <span v-else class="muted-loc">{{ c.loc }}</span>
+            </td>
             <td>{{ c.note }}</td>
           </tr>
         </tbody>
@@ -135,3 +142,8 @@ const sources = [
     </ul>
   </article>
 </template>
+
+<style scoped>
+.muted-loc { color: var(--muted); font-size: 0.9em; }
+td a { white-space: normal; }
+</style>
