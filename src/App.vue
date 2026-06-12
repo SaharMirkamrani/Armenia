@@ -5,12 +5,12 @@ import CurrencyConverter from './components/CurrencyConverter.vue'
 
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/car-rental', label: 'Car Rental' },
-  { to: '/crypto-law', label: 'Crypto Law' },
+  { to: '/car-rental', label: 'Cars' },
+  { to: '/crypto-law', label: 'Crypto' },
   { to: '/apps', label: 'Apps' },
   { to: '/leisure', label: 'Leisure' },
   { to: '/events', label: 'Events' },
-  { to: '/marriage-loan', label: 'Marriage Loan' },
+  { to: '/marriage-loan', label: 'Marriage' },
   { to: '/housing', label: 'Housing' },
   { to: '/language', label: 'Language' },
 ]

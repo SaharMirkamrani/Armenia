@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 
 const topics = [
@@ -61,29 +62,45 @@ const topics = [
   { icon: '📄', title: 'Residency & Visas', desc: 'Residence permits, registration, and required documents.', ready: false },
   { icon: '🏦', title: 'Banking', desc: 'Opening an account, cards, and transferring money.', ready: false },
 ]
+
+const readyCount = computed(() => topics.filter((t) => t.ready).length)
+const soonCount = computed(() => topics.filter((t) => !t.ready).length)
 </script>
 
 <template>
   <section class="hero">
     <div class="wrap">
-      <h1>Everything I need for my move to Armenia</h1>
-      <p>A growing, research-backed handbook covering the practical stuff — getting around, paperwork, housing, and more. Each topic is researched and updated over time.</p>
+      <span class="hero-chip">🇦🇲 Relocating to Armenia</span>
+      <h1>Everything we need for <span class="accent">our move to Armenia</span></h1>
+      <p>A growing, research-backed handbook for the practical stuff — getting around, paperwork, housing, money, and more. Every topic is researched, cited, and updated over time.</p>
+      <div class="hero-stats">
+        <span><strong>{{ readyCount }}</strong> guides ready</span>
+        <span class="dot">•</span>
+        <span>researched &amp; cited</span>
+        <span class="dot">•</span>
+        <span><strong>{{ soonCount }}</strong> coming soon</span>
+      </div>
     </div>
   </section>
 
   <section class="wrap">
-    <h2 class="section-title">Topics</h2>
+    <div class="section-head">
+      <h2 class="section-title">Topics</h2>
+      <span class="count">{{ readyCount }} ready · {{ soonCount }} coming</span>
+    </div>
     <div class="cards">
       <template v-for="topic in topics" :key="topic.title">
         <RouterLink v-if="topic.ready" :to="topic.to" class="card">
-          <div class="icon">{{ topic.icon }}</div>
+          <div class="card-icon">{{ topic.icon }}</div>
           <h3>{{ topic.title }}</h3>
           <p>{{ topic.desc }}</p>
+          <span class="card-cta">Explore →</span>
         </RouterLink>
         <div v-else class="card soon">
-          <div class="icon">{{ topic.icon }}</div>
-          <h3>{{ topic.title }} <span class="badge soon-badge">Soon</span></h3>
+          <div class="card-icon">{{ topic.icon }}</div>
+          <h3>{{ topic.title }}</h3>
           <p>{{ topic.desc }}</p>
+          <span class="badge soon-badge">Coming soon</span>
         </div>
       </template>
     </div>
@@ -93,3 +110,44 @@ const topics = [
     </div>
   </section>
 </template>
+
+<style scoped>
+.hero-chip {
+  display: inline-block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.hero h1 .accent {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-stats {
+  margin-top: 22px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.hero-stats strong { color: var(--text); }
+.hero-stats .dot { opacity: 0.4; }
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 36px 0 16px;
+}
+.section-head .section-title { margin: 0; }
+.section-head .count { color: var(--muted); font-size: 0.85rem; }
+</style>
