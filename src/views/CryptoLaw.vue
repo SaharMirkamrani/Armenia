@@ -53,6 +53,52 @@ const forYou = [
   'For anything resembling a crypto business (regular trading, running an exchange, a startup), get local tax/legal advice — different, stricter rules apply.',
 ]
 
+// Where to exchange crypto → AMD, grouped by method
+const exchangeGroups = [
+  {
+    title: 'Global P2P — sell crypto, get AMD to your bank/card',
+    blurb: 'Best for converting larger amounts or crypto income. You match with a buyer and receive a bank/card transfer in drams.',
+    items: [
+      { name: 'Binance P2P', url: 'https://p2p.binance.com/en/trade/all-payments/USDT?fiat=AMD', note: 'AMD supported; works with Ameriabank, Inecobank, Ardshinbank, ACBA, Idram and more.' },
+      { name: 'KuCoin P2P', url: 'https://www.kucoin.com/otc/buy/USDT-AMD', note: 'Armenian Dram supported on the P2P market.' },
+      { name: 'Remitano', url: 'https://remitano.com/am/p2p/usdt', note: 'Buy/sell USDT for AMD, escrow-protected P2P.' },
+    ],
+  },
+  {
+    title: 'Local Yerevan exchangers — cash or transfer',
+    blurb: 'Walk-in or online exchangers that settle in AMD cash or to a local account. Convenient, but compare rates first.',
+    items: [
+      { name: 'Armanestan', url: 'https://armanestan.org/en/crypto-exchange-in-yerevan/', note: 'USDT/BTC → AMD in Yerevan, cash or transfer.' },
+      { name: 'Bitbanker', url: 'https://bitbanker.org/exchangers/yerevan', note: 'Physical office in Yerevan; BTC, ETH, USDT, TON; cash & bank transfer.' },
+      { name: 'Turn.am', url: 'https://turn.am/en/category/kriptvo-phvokhanakvoum', note: 'Local crypto exchange — BTC/ETH/USDT for AMD/USD/EUR.' },
+      { name: 'AnyExchange', url: 'https://anyexchange.best/en/obmennik-kriptovalyut-v-yerevan/', note: 'Online crypto exchanger covering Yerevan.' },
+    ],
+  },
+  {
+    title: 'Compare rates across exchangers',
+    blurb: 'Aggregators that list many Armenian exchangers and their live rates so you avoid a bad spread.',
+    items: [
+      { name: 'BestChange', url: 'https://www.bestchange.com/tether-trc20-to-cash-dram-in-ervn.html', note: 'Vetted exchangers, e.g. USDT → cash AMD in Yerevan.' },
+      { name: 'ExFinder', url: 'https://exfinder.io/en/blog/post/crypto-to-amd', note: 'Compares crypto exchangers and explains crypto→AMD.' },
+      { name: 'CryptoNVG', url: 'https://cryptonvg.com/places/yerevan', note: 'Directory of Yerevan crypto exchanges and ATMs.' },
+    ],
+  },
+  {
+    title: 'Crypto ATMs / terminals',
+    blurb: 'Fastest cash-out but the worst rates — fine for small amounts. Yerevan has ~23 crypto ATMs.',
+    items: [
+      { name: 'Sky Labs / SkyTerminal', url: 'https://cryptonvg.com/atm/sky-labs-atm-yerevan', note: '24/7 terminals to buy/sell BTC, ETH, USDT for drams in minutes.' },
+    ],
+  },
+]
+
+const exchangeNotes = [
+  'Prefer a CBA-licensed provider, and check the official register before sending funds — unlicensed operators are being phased out by Jan 2027.',
+  'Expect ID / KYC checks on larger amounts; avoid "anonymous" services given the new reporting rules (CARF from 2027).',
+  'Rates and spreads vary a lot between exchangers and the in-app P2P price — compare before committing.',
+  'Remember the cash rule: crypto deals are meant to be non-cash, with a transitional cash cap of ~300,000 AMD (~$780) per transaction.',
+]
+
 const sources = [
   { t: 'Library of Congress — Armenia: New Law Establishes Regulatory Framework for Crypto-Assets', u: 'https://www.loc.gov/item/global-legal-monitor/2025-09-19/armenia-new-law-establishes-comprehensive-regulatory-framework-for-crypto-assets' },
   { t: 'ILex Law Firm — Law "On Crypto-Assets" (HO-159-N) enters into force', u: 'https://www.ilex.am/en/archive/627-armenia-s-law-on-crypto-assets-ho-159-n-enters-into-force.html' },
@@ -65,6 +111,9 @@ const sources = [
   { t: 'PwC Tax Summaries — Armenia: Taxes on personal income (20% flat rate)', u: 'https://taxsummaries.pwc.com/armenia/individual/taxes-on-personal-income' },
   { t: 'Vardanyan & Partners — Taxes in Armenia: Guide for Foreigners', u: 'https://armenian-lawyer.com/taxes-armenia/' },
   { t: 'Beaumont Capital Markets — Armenia\'s Crypto Tax Guide for Expats & Digital Nomads', u: 'https://beaumont-capitalmarkets.co.uk/armenias-crypto-tax-guide-for-expats-and-digital-nomads/' },
+  { t: 'Central Bank of Armenia — Crypto-asset service providers (official register)', u: 'https://www.cba.am/en/crypto-asset-service-providers/' },
+  { t: 'ExFinder — How to exchange cryptocurrency to AMD in Armenia', u: 'https://exfinder.io/en/blog/post/crypto-to-amd' },
+  { t: 'Binance Support — P2P adds Armenian Dram (AMD) payment methods', u: 'https://www.binance.com/en/support/announcement/binance-p2p-supports-new-payment-methods-for-kazakhstani-tenge-kzt-polish-zloty-pln-georgian-lari-gel-and-armenian-dram-amd-d8519d99edb4406fbab21e2ab483a362' },
 ]
 </script>
 
@@ -122,6 +171,32 @@ const sources = [
       </ul>
     </div>
 
+    <h2>Where to exchange crypto → drams (AMD)</h2>
+    <p>
+      Practical options for turning crypto into spendable drams, fastest-to-set-up first. Always check the Central
+      Bank's <a href="https://www.cba.am/en/crypto-asset-service-providers/" target="_blank" rel="noopener">official list of licensed providers</a> before trusting a service.
+    </p>
+    <div v-for="g in exchangeGroups" :key="g.title" class="exch-group">
+      <h3>{{ g.title }}</h3>
+      <p class="exch-blurb">{{ g.blurb }}</p>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr v-for="it in g.items" :key="it.name">
+              <td style="white-space:nowrap"><a :href="it.url" target="_blank" rel="noopener">{{ it.name }}</a></td>
+              <td>{{ it.note }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="callout">
+      <h3>🔑 Before you exchange</h3>
+      <ul>
+        <li v-for="(n, i) in exchangeNotes" :key="i">{{ n }}</li>
+      </ul>
+    </div>
+
     <h2>Restrictions &amp; rules</h2>
     <div v-for="r in restrictions" :key="r.title" class="callout">
       <h3>{{ r.title }}</h3>
@@ -156,4 +231,7 @@ const sources = [
 .qa-q { color: var(--muted); font-size: 0.9rem; }
 .qa-a { font-size: 1.35rem; font-weight: 700; margin: 4px 0 8px; }
 .qa-d { margin: 0; font-size: 0.9rem; color: var(--muted); }
+.exch-group { margin: 18px 0; }
+.exch-group h3 { margin-bottom: 2px; }
+.exch-blurb { margin: 0 0 6px; color: var(--muted); font-size: 0.92rem; }
 </style>
