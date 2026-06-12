@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import CurrencyConverter from './components/CurrencyConverter.vue'
 </script>
 
 <template>
@@ -23,6 +24,9 @@ import { RouterLink, RouterView } from 'vue-router'
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">Built as a personal migration handbook · 🇦🇲 Armenia</div>
+    <div class="wrap">
+      <CurrencyConverter />
+      <p style="margin: 16px 0 0">Built as a personal migration handbook · 🇦🇲 Armenia</p>
+    </div>
   </footer>
 </template>
