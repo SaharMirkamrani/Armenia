@@ -91,10 +91,18 @@ function toggleListen(field, langCode, assign) {
   recog.lang = langCode
   recog.interimResults = true
   recog.continuous = true
+  // Build the transcript from resultIndex onward: append each finalized
+  // result exactly once, and show only the current interim. Concatenating
+  // *all* results on every event duplicates words once they finalize.
+  let finalText = ''
   recog.onresult = (e) => {
-    let t = ''
-    for (let i = 0; i < e.results.length; i++) t += e.results[i][0].transcript
-    assign(t)
+    let interim = ''
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      const res = e.results[i]
+      if (res.isFinal) finalText += res[0].transcript
+      else interim += res[0].transcript
+    }
+    assign(finalText + interim)
   }
   recog.onerror = () => (listeningField.value = '')
   recog.onend = () => (listeningField.value = '')

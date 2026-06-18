@@ -4,6 +4,13 @@ import { RouterLink } from 'vue-router'
 
 const topics = [
   {
+    icon: '🔁',
+    title: 'Live Translator',
+    desc: 'Translate English or Persian to Armenian in real time — type or speak, read or listen.',
+    to: '/translate',
+    ready: true,
+  },
+  {
     icon: '🚗',
     title: 'Car Rental',
     desc: 'Reputable rental companies, rough prices by car class, and the documents you need to rent.',
@@ -50,13 +57,6 @@ const topics = [
     title: 'Language',
     desc: 'Armenian for absolute beginners — alphabet, survival phrases, numbers, and resources.',
     to: '/language',
-    ready: true,
-  },
-  {
-    icon: '🔁',
-    title: 'Live Translator',
-    desc: 'Translate English or Persian to Armenian in real time — type or speak, read or listen.',
-    to: '/translate',
     ready: true,
   },
   { icon: '📄', title: 'Residency & Visas', desc: 'Residence permits, registration, and required documents.', ready: false },
