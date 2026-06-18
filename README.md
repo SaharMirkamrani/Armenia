@@ -17,6 +17,23 @@ npm run build    # production build into dist/
 npm run preview  # preview the production build
 ```
 
+## Single-file build / publishing as an artifact
+
+The build is configured with [`vite-plugin-singlefile`](https://github.com/richardtallent/vite-plugin-singlefile),
+so `npm run build` inlines **all** JS and CSS into a single self-contained
+`dist/index.html`. That one file:
+
+- **Opens with no server** — just double-click `dist/index.html`.
+- **Is publishable as an HTML artifact** — its contents are everything the app needs.
+
+Routing uses hash mode (`#/car-rental`, etc.) so deep links work from a plain
+file with no server rewrites.
+
+⚠️ The **Translator** makes live calls to a public translation API. That works
+when the file is opened normally or hosted, but a strict sandbox (e.g. a
+Claude artifact's iframe) may block those network requests — in which case the
+rest of the site still works and the translator simply can't reach the service.
+
 ## Structure
 
 ```
