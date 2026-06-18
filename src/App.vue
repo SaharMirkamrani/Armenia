@@ -10,7 +10,6 @@ const links = [
   { to: '/apps', label: 'Apps' },
   { to: '/leisure', label: 'Leisure' },
   { to: '/events', label: 'Events' },
-  { to: '/marriage-loan', label: 'Marriage' },
   { to: '/housing', label: 'Housing' },
   { to: '/language', label: 'Language' },
   { to: '/translate', label: 'Translate' },

@@ -39,13 +39,6 @@ const topics = [
     ready: true,
   },
   {
-    icon: '💍',
-    title: 'Marriage Loan',
-    desc: 'Can Iran\'s marriage loan be used while living abroad? Conditions and the catch.',
-    to: '/marriage-loan',
-    ready: true,
-  },
-  {
     icon: '🏠',
     title: 'Housing',
     desc: 'Renting an apartment — prices by district, where to look, and lease paperwork.',

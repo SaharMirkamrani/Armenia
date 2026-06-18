@@ -5,7 +5,6 @@ import CryptoLaw from '../views/CryptoLaw.vue'
 import Apps from '../views/Apps.vue'
 import Leisure from '../views/Leisure.vue'
 import Events from '../views/Events.vue'
-import MarriageLoan from '../views/MarriageLoan.vue'
 import Housing from '../views/Housing.vue'
 import Language from '../views/Language.vue'
 import Translator from '../views/Translator.vue'
@@ -17,7 +16,6 @@ const routes = [
   { path: '/apps', name: 'apps', component: Apps },
   { path: '/leisure', name: 'leisure', component: Leisure },
   { path: '/events', name: 'events', component: Events },
-  { path: '/marriage-loan', name: 'marriage-loan', component: MarriageLoan },
   { path: '/housing', name: 'housing', component: Housing },
   { path: '/language', name: 'language', component: Language },
   { path: '/translate', name: 'translate', component: Translator },
