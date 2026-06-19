@@ -67,6 +67,13 @@ const topics = [
     ready: true,
   },
   {
+    icon: '🇮🇷',
+    title: 'Iranian Community',
+    desc: 'Persian food, the Blue Mosque & cultural center, consular help, and community groups.',
+    to: '/iranians',
+    ready: true,
+  },
+  {
     icon: '₿',
     title: 'Crypto Law',
     desc: 'Is buying & selling crypto legal, is it taxed, and what are the restrictions?',

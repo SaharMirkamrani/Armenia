@@ -10,6 +10,7 @@ import Translator from '../views/Translator.vue'
 import Residency from '../views/Residency.vue'
 import Banking from '../views/Banking.vue'
 import Healthcare from '../views/Healthcare.vue'
+import Iranians from '../views/Iranians.vue'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -23,6 +24,7 @@ const routes = [
   { path: '/residency', name: 'residency', component: Residency },
   { path: '/banking', name: 'banking', component: Banking },
   { path: '/healthcare', name: 'healthcare', component: Healthcare },
+  { path: '/iranians', name: 'iranians', component: Iranians },
 ]
 
 const router = createRouter({
