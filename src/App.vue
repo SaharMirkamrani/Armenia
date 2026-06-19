@@ -3,26 +3,34 @@ import { ref, watch } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
 import CurrencyConverter from './components/CurrencyConverter.vue'
 
-const links = [
-  { to: '/', label: 'Home' },
-  { to: '/car-rental', label: 'Cars' },
+// The 5 most-used / most-important items stay on the desktop bar…
+const primaryLinks = [
+  { to: '/translate', label: 'Translate' },
+  { to: '/transport', label: 'Transit' },
   { to: '/apps', label: 'Apps' },
-  { to: '/leisure', label: 'Leisure' },
-  { to: '/events', label: 'Events' },
   { to: '/residency', label: 'Residency' },
   { to: '/banking', label: 'Banking' },
+]
+// …the rest live under "More ▾" on desktop (and flow into the mobile menu).
+const moreLinks = [
+  { to: '/', label: 'Home' },
+  { to: '/car-rental', label: 'Cars' },
+  { to: '/leisure', label: 'Leisure' },
+  { to: '/events', label: 'Events' },
   { to: '/healthcare', label: 'Health' },
   { to: '/iranians', label: 'Iran' },
-  { to: '/transport', label: 'Transit' },
   { to: '/language', label: 'Language' },
-  { to: '/translate', label: 'Translate' },
   { to: '/crypto-law', label: 'Crypto' },
 ]
 
 const menuOpen = ref(false)
+const moreOpen = ref(false)
 const route = useRoute()
-// Close the mobile menu whenever the route changes.
-watch(() => route.fullPath, () => { menuOpen.value = false })
+// Close menus whenever the route changes.
+watch(() => route.fullPath, () => {
+  menuOpen.value = false
+  moreOpen.value = false
+})
 </script>
 
 <template>
@@ -40,9 +48,21 @@ watch(() => route.fullPath, () => { menuOpen.value = false })
         <span></span><span></span><span></span>
       </button>
       <nav id="primary-nav" class="nav" :class="{ open: menuOpen }">
-        <RouterLink v-for="l in links" :key="l.to" :to="l.to">{{ l.label }}</RouterLink>
+        <RouterLink v-for="l in primaryLinks" :key="l.to" :to="l.to">{{ l.label }}</RouterLink>
+        <div class="more" :class="{ open: moreOpen }">
+          <button
+            type="button"
+            class="more-toggle"
+            :aria-expanded="moreOpen"
+            @click="moreOpen = !moreOpen"
+          >More ▾</button>
+          <div class="more-panel">
+            <RouterLink v-for="l in moreLinks" :key="l.to" :to="l.to">{{ l.label }}</RouterLink>
+          </div>
+        </div>
       </nav>
     </div>
+    <div v-if="moreOpen" class="more-backdrop" @click="moreOpen = false"></div>
   </header>
 
   <main>
