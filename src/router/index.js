@@ -7,6 +7,7 @@ import Leisure from '../views/Leisure.vue'
 import Events from '../views/Events.vue'
 import Language from '../views/Language.vue'
 import Translator from '../views/Translator.vue'
+import Residency from '../views/Residency.vue'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -17,6 +18,7 @@ const routes = [
   { path: '/events', name: 'events', component: Events },
   { path: '/language', name: 'language', component: Language },
   { path: '/translate', name: 'translate', component: Translator },
+  { path: '/residency', name: 'residency', component: Residency },
 ]
 
 const router = createRouter({
