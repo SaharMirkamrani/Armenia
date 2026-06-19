@@ -46,6 +46,28 @@ const ebikes = [
   { name: 'Mimo', url: 'https://www.mimobike.com/', price: 'pay per ride', note: 'Bike-sharing platform aiming for affordable, accessible city cycling.' },
 ]
 
+const cafes = [
+  { name: 'Lumen Coffee', known: 'Hip specialty spot, roasts its own beans (V60, flat whites, cold brew).', q: 'Lumen Coffee Yerevan' },
+  { name: 'Coffee 23.5', known: 'On Saryan St — own-roasted beans, shaded terrace, very affordable.', q: 'Coffee 23.5 Saryan Yerevan' },
+  { name: 'AfroLab Roastery', known: 'Roastery with a wide drinks & food selection; consistently good.', q: 'AfroLab Roastery Yerevan' },
+  { name: 'Crumbs Bread Factory', known: 'Bakery-café near the Opera (Mashtots) — bread, pastries, good for work or catching up.', q: 'Crumbs Bread Factory Mashtots Yerevan' },
+]
+
+const nightlife = [
+  { name: 'Saryan Street ("wine street")', type: 'Wine bars', known: 'The go-to evening strip — tasting rooms and wine bars packed side by side.', q: 'Saryan Street Yerevan' },
+  { name: 'In Vino', type: 'Wine bar', known: 'Top wine bar & bodega on Saryan — lots of local and international wines.', q: 'In Vino wine bar Saryan Yerevan' },
+  { name: 'Calumet Ethnic Lounge', type: 'Bar / live music', known: 'Eclectic bookings from jazz to electronic; long-time favourite.', q: 'Calumet Ethnic Lounge Bar Yerevan' },
+  { name: 'Mir Club', type: 'Club', known: "Yerevan's leading techno / electronic venue.", q: 'Mir Club Yerevan' },
+  { name: 'Liberty / Friends / Stoyka', type: 'Pubs & bars', known: 'Popular, lively pubs and bars for an easy night out.', q: 'Liberty Pub Yerevan' },
+]
+
+const areas = [
+  'Kentron (city centre) — Republic Square & Northern Avenue: the heart of cafés, bars and people-watching.',
+  'The Cascade — giant stairway with cafés, art (Cafesjian Center) and a buzzing plaza below.',
+  'Saryan Street — the wine-bar street, best in the evenings.',
+  'Barekamutyun — a livelier local hub around the metro stop of the same name.',
+]
+
 const sources = [
   { t: 'Expatistan — Gym membership price in Yerevan', u: 'https://www.expatistan.com/price/gym/yerevan' },
   { t: 'ArmeniaInfo — Best gyms & fitness centres in Yerevan', u: 'https://armeniainfo.ai/blog/medical-tourism-guide/best-gyms-fitness-centers-in-yerevan-directory-your-ultimate-guide-to-a-healthier-lifestyle' },
@@ -60,6 +82,9 @@ const sources = [
   { t: 'Moscow Cinema — official site', u: 'https://moscowcinema.com/en' },
   { t: 'YerevanRide — pricing', u: 'https://www.yerevanride.am/pricing.html' },
   { t: 'ARKA — BusyFly launches e-scooter rental in Armenia', u: 'https://arka.am/en/news/business/busyfly_starts_electric_scooter_rental_service_in_armenia_/' },
+  { t: 'Absolute Armenia — Best cafés in Yerevan', u: 'https://absolutearmenia.com/cafes-yerevan/' },
+  { t: 'Absolute Armenia — Saryan Street wine guide', u: 'https://absolutearmenia.com/saryan-street-wine-yerevan/' },
+  { t: 'Armenia Travel — Guide to Yerevan nightlife', u: 'https://armenia.travel/articles/guide-to-yerevan-nightlife/' },
 ]
 
 const mapUrl = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`
@@ -67,11 +92,11 @@ const mapUrl = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeU
 
 <template>
   <article class="content wrap">
-    <p class="breadcrumb"><RouterLink to="/">← Home</RouterLink> / Leisure & Fitness</p>
-    <h1>🏊 Gym, Pool, Cinema &amp; E-bikes</h1>
+    <p class="breadcrumb"><RouterLink to="/">← Home</RouterLink> / Leisure & Going Out</p>
+    <h1>🎉 Leisure &amp; Going Out</h1>
     <p class="lead">
-      Staying active and entertained in Yerevan — gym memberships, swimming pools, cinemas, and electric
-      bike/scooter rentals, with rough prices (2025). All prices in Armenian dram (AMD).
+      Staying active and having fun in Yerevan — gyms, pools, cinemas and e-bikes, plus where to grab a coffee,
+      a glass of wine, or a night out. Prices in Armenian dram (AMD) where shown.
     </p>
 
     <h2>🏋️ Gyms</h2>
@@ -155,6 +180,42 @@ const mapUrl = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeU
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <h2>☕ Cafés &amp; coffee</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Café</th><th>Known for</th><th>Find it</th></tr></thead>
+        <tbody>
+          <tr v-for="c in cafes" :key="c.name">
+            <td><strong>{{ c.name }}</strong></td>
+            <td data-label="Known for">{{ c.known }}</td>
+            <td data-label="Find it"><a :href="mapUrl(c.q)" target="_blank" rel="noopener">📍 Map</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>🍷 Wine bars &amp; nightlife</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Spot</th><th>Type</th><th>Known for</th><th>Find it</th></tr></thead>
+        <tbody>
+          <tr v-for="n in nightlife" :key="n.name">
+            <td><strong>{{ n.name }}</strong></td>
+            <td data-label="Type">{{ n.type }}</td>
+            <td data-label="Known for">{{ n.known }}</td>
+            <td data-label="Find it"><a :href="mapUrl(n.q)" target="_blank" rel="noopener">📍 Map</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <h3>📍 Where to hang out</h3>
+      <ul style="margin:0">
+        <li v-for="(a, i) in areas" :key="i">{{ a }}</li>
+      </ul>
     </div>
 
     <div class="disclaimer">

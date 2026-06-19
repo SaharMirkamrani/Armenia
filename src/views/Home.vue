@@ -25,9 +25,9 @@ const topics = [
     ready: true,
   },
   {
-    icon: '🏊',
-    title: 'Leisure & Fitness',
-    desc: 'Gyms, swimming pools, cinemas, and electric bike/scooter rentals — with rough prices.',
+    icon: '🎉',
+    title: 'Leisure & Going Out',
+    desc: 'Gyms, pools, cinemas, e-bikes — plus cafés, wine bars, nightlife, and where to hang out.',
     to: '/leisure',
     ready: true,
   },

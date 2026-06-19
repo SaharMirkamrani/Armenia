@@ -55,7 +55,7 @@ migration-guide/
 - [x] **Car Rental** — companies, rough prices, documents required, cross-border to Georgia
 - [x] **Crypto Law** — legality, taxation, and restrictions on buying/selling crypto
 - [x] **Essential Apps** — must-have apps (taxi, transport, food, banking) + EarlyOne
-- [x] **Leisure & Fitness** — gyms, pools, cinemas, e-bikes with rough prices
+- [x] **Leisure & Going Out** — gyms, pools, cinemas, e-bikes + cafés, wine bars & nightlife
 - [x] **Events & Festivals** — upcoming concerts/festivals + System of a Down status
 - [x] **Residency & Visas** — every residency pathway, fees, process, path to citizenship
 - [x] **Language** — Armenian for absolute beginners: alphabet, phrases, numbers, resources
