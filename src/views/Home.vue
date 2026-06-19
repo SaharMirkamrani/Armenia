@@ -53,13 +53,19 @@ const topics = [
     ready: true,
   },
   {
+    icon: '🏦',
+    title: 'Banking',
+    desc: 'Opening an account as a newcomer, the best banks, and the hurdles Iranians face.',
+    to: '/banking',
+    ready: true,
+  },
+  {
     icon: '₿',
     title: 'Crypto Law',
     desc: 'Is buying & selling crypto legal, is it taxed, and what are the restrictions?',
     to: '/crypto-law',
     ready: true,
   },
-  { icon: '🏦', title: 'Banking', desc: 'Opening an account, cards, and transferring money.', ready: false },
 ]
 
 const readyCount = computed(() => topics.filter((t) => t.ready).length)

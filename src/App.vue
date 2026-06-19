@@ -10,6 +10,7 @@ const links = [
   { to: '/leisure', label: 'Leisure' },
   { to: '/events', label: 'Events' },
   { to: '/residency', label: 'Residency' },
+  { to: '/banking', label: 'Banking' },
   { to: '/language', label: 'Language' },
   { to: '/translate', label: 'Translate' },
   { to: '/crypto-law', label: 'Crypto' },
