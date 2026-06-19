@@ -60,6 +60,13 @@ const topics = [
     ready: true,
   },
   {
+    icon: '🩺',
+    title: 'Healthcare',
+    desc: 'Hospitals (incl. Arabkir), emergency numbers, insurance, and pharmacies.',
+    to: '/healthcare',
+    ready: true,
+  },
+  {
     icon: '₿',
     title: 'Crypto Law',
     desc: 'Is buying & selling crypto legal, is it taxed, and what are the restrictions?',

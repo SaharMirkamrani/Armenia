@@ -97,7 +97,7 @@ a:hover { text-decoration: underline; }
 .nav a.router-link-exact-active { color: var(--text); background: var(--surface); }
 
 /* Desktop — inline nav, no hamburger */
-@media (min-width: 1000px) {
+@media (min-width: 1120px) {
   .header-bar { flex-wrap: nowrap; }
   .nav-toggle { display: none; }
   .nav {

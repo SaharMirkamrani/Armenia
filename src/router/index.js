@@ -9,6 +9,7 @@ import Language from '../views/Language.vue'
 import Translator from '../views/Translator.vue'
 import Residency from '../views/Residency.vue'
 import Banking from '../views/Banking.vue'
+import Healthcare from '../views/Healthcare.vue'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -21,6 +22,7 @@ const routes = [
   { path: '/translate', name: 'translate', component: Translator },
   { path: '/residency', name: 'residency', component: Residency },
   { path: '/banking', name: 'banking', component: Banking },
+  { path: '/healthcare', name: 'healthcare', component: Healthcare },
 ]
 
 const router = createRouter({

@@ -61,6 +61,7 @@ migration-guide/
 - [x] **Language** — Armenian for absolute beginners: alphabet, phrases, numbers, resources
 - [x] **Live Translator** — real-time English/Persian → Armenian, with speech in & out
 - [x] **Banking** — opening an account as a foreigner, top banks, and the Iranian-citizen reality
+- [x] **Healthcare** — hospitals (incl. Arabkir/Mamikonyants), emergency numbers, insurance, pharmacies
 
 Adding a topic: create `src/views/Topic.vue`, add a route in `src/router/index.js`, and add a card in `src/views/Home.vue`.
 
