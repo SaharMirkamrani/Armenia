@@ -2,8 +2,8 @@
 //
 // This is an approximate, static rate — it does NOT fetch live FX.
 // Update this single constant when the rate drifts.
-// As of mid-2026, 1 USD ≈ 390 AMD.
-export const AMD_PER_USD = 390
+// 1 USD = 368.19 AMD.
+export const AMD_PER_USD = 368.19
 
 /** Convert a dram amount to US dollars (number). */
 export function amdToUsd(amd) {

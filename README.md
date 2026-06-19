@@ -57,7 +57,6 @@ migration-guide/
 - [x] **Essential Apps** — must-have apps (taxi, transport, food, banking) + EarlyOne
 - [x] **Leisure & Fitness** — gyms, pools, cinemas, e-bikes with rough prices
 - [x] **Events & Festivals** — upcoming concerts/festivals + System of a Down status
-- [x] **Housing** — renting in Yerevan: prices, districts, platforms, lease paperwork
 - [x] **Language** — Armenian for absolute beginners: alphabet, phrases, numbers, resources
 - [x] **Live Translator** — real-time English/Persian → Armenian, with speech in & out
 - [ ] Residency & Visas

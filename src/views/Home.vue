@@ -18,13 +18,6 @@ const topics = [
     ready: true,
   },
   {
-    icon: '₿',
-    title: 'Crypto Law',
-    desc: 'Is buying & selling crypto legal, is it taxed, and what are the restrictions?',
-    to: '/crypto-law',
-    ready: true,
-  },
-  {
     icon: '📱',
     title: 'Essential Apps',
     desc: 'The must-have apps for daily life — taxi, transport, food, banking, and EarlyOne.',
@@ -46,17 +39,17 @@ const topics = [
     ready: true,
   },
   {
-    icon: '🏠',
-    title: 'Housing',
-    desc: 'Renting an apartment — prices by district, where to look, and lease paperwork.',
-    to: '/housing',
-    ready: true,
-  },
-  {
     icon: '🗣️',
     title: 'Language',
     desc: 'Armenian for absolute beginners — alphabet, survival phrases, numbers, and resources.',
     to: '/language',
+    ready: true,
+  },
+  {
+    icon: '₿',
+    title: 'Crypto Law',
+    desc: 'Is buying & selling crypto legal, is it taxed, and what are the restrictions?',
+    to: '/crypto-law',
     ready: true,
   },
   { icon: '📄', title: 'Residency & Visas', desc: 'Residence permits, registration, and required documents.', ready: false },
@@ -72,7 +65,7 @@ const soonCount = computed(() => topics.filter((t) => !t.ready).length)
     <div class="wrap">
       <span class="hero-chip">🇦🇲 Relocating to Armenia</span>
       <h1>Everything we need for <span class="accent">our move to Armenia</span></h1>
-      <p>A growing, research-backed handbook for the practical stuff — getting around, paperwork, housing, money, and more. Every topic is researched, cited, and updated over time.</p>
+      <p>A growing, research-backed handbook for the practical stuff — getting around, paperwork, money, and more. Every topic is researched, cited, and updated over time.</p>
       <div class="hero-stats">
         <span><strong>{{ readyCount }}</strong> guides ready</span>
         <span class="dot">•</span>
