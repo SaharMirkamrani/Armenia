@@ -1,6 +1,14 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 
+// Tailored: getting from Mamikonyants St (Arabkir) to the city centre
+const fromHome = [
+  { mode: '🚕 Taxi — easiest & fastest', detail: 'Yandex Go or GG from your door to Republic Square: about 1,000–1,500 AMD and 10–15 minutes. Best when you\'re in a hurry or it\'s late.' },
+  { mode: '🚌 Bus — most direct transit', detail: 'Walk to the nearest stop (e.g. Mamikonyants / Malkhasyants, ~160 m away) and take a city bus down Komitas Avenue toward the centre (Mashtots Ave / Republic Square). 150 AMD. Check Yandex Maps for the current route number — they were renumbered in the 2025 reform.' },
+  { mode: '🚇 Metro — from Barekamutyun', detail: 'Your nearest station is Barekamutyun (~2 km — a 25–30 min walk, or a quick bus/taxi hop). From there ride south: Marshal Baghramyan → Yeritasardakan (Cascade & Opera) → Republic Square (dead centre) — about 4 stops, under 10 minutes. 150 AMD.' },
+  { mode: '🚶 Walk', detail: 'Republic Square is roughly 3.5–4 km away — about a 45-minute, mostly gentle-downhill stroll via Komitas and Baghramyan avenues. Lovely in good weather.' },
+]
+
 const pay = [
   'One fare = 150 AMD (~$0.40) per vehicle — same on the metro, buses and trolleybuses.',
   'Get a transport card (500 AMD, includes one ride) and top it up — buy at metro stations, kiosks and terminals.',
@@ -65,6 +73,17 @@ const mapUrl = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeU
       Public transport is cheap and simple once you have a card — the metro, buses and trolleybuses all use one
       150 AMD fare. Here's how to pay, where the metro stations are, and how to go further afield.
     </p>
+
+    <div class="callout" style="border-left-color: var(--accent-2)">
+      <h3>📍 From Mamikonyants St (Arabkir) → city centre</h3>
+      <p style="margin:0 0 10px">Your options from home, fastest first:</p>
+      <ul style="margin:0">
+        <li v-for="r in fromHome" :key="r.mode"><strong>{{ r.mode }}.</strong> {{ r.detail }}</li>
+      </ul>
+      <p style="margin:10px 0 0; font-size:0.9rem; color: var(--muted)">
+        Nearest metro: <a :href="mapUrl('Barekamutyun metro station Yerevan')" target="_blank" rel="noopener">📍 Barekamutyun</a>.
+      </p>
+    </div>
 
     <div class="callout docs">
       <h3>🎟️ How to pay (the 2025 system)</h3>
