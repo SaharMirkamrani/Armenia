@@ -13,6 +13,7 @@ const links = [
   { to: '/banking', label: 'Banking' },
   { to: '/healthcare', label: 'Health' },
   { to: '/iranians', label: 'Iran' },
+  { to: '/transport', label: 'Transit' },
   { to: '/language', label: 'Language' },
   { to: '/translate', label: 'Translate' },
   { to: '/crypto-law', label: 'Crypto' },

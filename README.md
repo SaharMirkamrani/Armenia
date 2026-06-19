@@ -63,6 +63,7 @@ migration-guide/
 - [x] **Banking** — opening an account as a foreigner, top banks, and the Iranian-citizen reality
 - [x] **Healthcare** — hospitals (incl. Arabkir/Mamikonyants), emergency numbers, insurance, pharmacies
 - [x] **Iranian Community** — Persian food, Blue Mosque/cultural center, consular help, community groups
+- [x] **Getting Around** — metro stations, buses/trolleybuses, fares & ticketing, intercity travel
 
 Adding a topic: create `src/views/Topic.vue`, add a route in `src/router/index.js`, and add a card in `src/views/Home.vue`.
 

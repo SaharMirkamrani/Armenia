@@ -74,6 +74,13 @@ const topics = [
     ready: true,
   },
   {
+    icon: '🚇',
+    title: 'Getting Around',
+    desc: 'Public transport — metro stations, buses, how to pay the fare, and intercity travel.',
+    to: '/transport',
+    ready: true,
+  },
+  {
     icon: '₿',
     title: 'Crypto Law',
     desc: 'Is buying & selling crypto legal, is it taxed, and what are the restrictions?',
